@@ -1,0 +1,79 @@
+# Module 12 Report Template
+
+## Overview of the Analysis
+
+In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+
+* Explain the purpose of the analysis.
+The purpose is to create and evaluate a data model based on loan risk, the model needs to identify the creditworthiness of borrowers.
+
+I employed several datasets provided by the lending company, based on its contents the best course of action was creating a regression algorithm for the learning model since it's used to predict the probability of a target variable, most of the dataset gave us healthy loans, this was obtained using RandomOverSampler, what this does was create more copies to balance the data set. To determine if we needed to use the previews variable the value counts was employed to se how imbalances the data set was and we obtaind that there were more healthy loans. 
+
+The steps were the following:
+
+Split the Data into Training and Testing Sets
+
+Step 1: Read the lending_data.csv data from the Resources folder into a Pandas DataFrame.
+Step 2: Create the labels set (y) from the “loan_status” column, and then create the features (X) DataFrame from the remaining columns.
+Step 3: Check the balance of the labels variable (y) by using the value_counts function.
+Step 4: Split the data into training and testing datasets by using train_test_split.
+
+Create a Logistic Regression Model with the Original Data
+Step 1: Fit a logistic regression model by using the training data (X_train and y_train).
+Step 2: Save the predictions on the testing data labels by using the testing feature data (X_test) and the fitted model.
+Step 3: Evaluate the model’s performance by:
+
+Calculate the accuracy score of the model.
+
+Generate a confusion matrix.
+
+Print the classification report.
+
+Predict a Logistic Regression Model with Resampled Training Data
+Step 1: Use the RandomOverSampler module from the imbalanced-learn library to resample the data. Be sure to confirm that the labels have an equal number of data points.
+Step 2: Use the LogisticRegression classifier and the resampled data to fit the model and make predictions.
+Step 3: Evaluate the model’s performance by:
+
+Calculate the accuracy score of the model.
+
+Generate a confusion matrix.
+
+Print the classification report.
+
+## Results
+
+Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
+
+* Machine Learning Model 1:
+ 
+
+                 precision  recall  f1-score   support
+
+           0       1.00      0.99      1.00     18765
+           1       0.85      0.91      0.88       619
+
+    accuracy                           0.99     19384
+   macro avg       0.92      0.95      0.94     19384
+weighted avg       0.99      0.99      0.99     19384
+
+The accuracy of the model is 95%, 92% of the predicted positives were correct. All of these results coul be due to the inbalance of the data set. 
+
+
+* Machine Learning Model 2:
+
+                precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99     75036
+           1       0.99      0.99      0.99     75036
+
+    accuracy                           0.99    150072
+   macro avg       0.99      0.99      0.99    150072
+weighted avg       0.99      0.99      0.99    150072
+
+The accuracy of the model is 99%, as well at the percentage of predicted positives since the dataset is now balanced.
+  
+
+## Summary
+
+Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+In overall I would recommend model two, since the data is balanced and has a higher acuracy, so the model wil make less mistakes or close to zero. Having a better chance of predicting correctly the creditworthiness of borrowers.
